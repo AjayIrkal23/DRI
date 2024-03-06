@@ -7,11 +7,11 @@ const { Pool, Client } = pg;
 export const Start = async (req, res) => {
   try {
     const pool = new Pool({
-      user: "postgres",
-      password: "hello123",
+      user: "docketrun",
+      password: "docketrun",
       host: "localhost",
       port: 5432,
-      database: "postgres",
+      database: "docketrundb",
     });
     console.log("Connection Successful !");
 
@@ -62,12 +62,12 @@ export const getData = async (req, res) => {
   let pool; // Declare the pool variable outside the try-catch block
 
   try {
-    pool = new Pool({
-      user: "postgres",
-      password: "hello123",
+    const pool = new Pool({
+      user: "docketrun",
+      password: "docketrun",
       host: "localhost",
       port: 5432,
-      database: "postgres",
+      database: "docketrundb",
     });
     console.log("Connection Successful !");
 
@@ -85,6 +85,7 @@ export const getData = async (req, res) => {
     );
 
     // Send the result as JSON response
+    console.log(result.rows)
     res.status(200).json(result.rows);
   } catch (err) {
     console.log(err);
@@ -102,12 +103,12 @@ export const getHistoryData = async (req, res) => {
   const start = req.body.period[0];
   const stop = req.body.period[1];
   try {
-    pool = new Pool({
-      user: "postgres",
-      password: "hello123",
+    const pool = new Pool({
+      user: "docketrun",
+      password: "docketrun",
       host: "localhost",
       port: 5432,
-      database: "postgres",
+      database: "docketrundb",
     });
     console.log("Connection Successful !");
 

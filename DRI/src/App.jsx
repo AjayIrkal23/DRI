@@ -73,7 +73,7 @@ function App() {
     <>
       <Toaster />
       <>
-        {mainData.length > 0 ? (
+      
           <>
             {" "}
             {!user ? (
@@ -110,12 +110,7 @@ function App() {
               </div>
             )}
           </>
-        ) : (
-          <div className="flex flex-col w-screen justify-center items-center mt-20">
-            <p className="text-xl font-bold ">Fetching Data</p>
-            <img src="/e.png" alt="" />
-          </div>
-        )}
+      
       </>
     </>
   );

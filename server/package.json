@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "pkg index.js --output dist/app --targets node14-linux-x64,node14-macos-x64,node14-win-x64",
     "start": "node --max-old-space-size=8196 index.js",
     "dev": "nodemon index.js"
   },
@@ -26,3 +27,5 @@
     "prisma": "^4.16.2"
   }
 }
+
+

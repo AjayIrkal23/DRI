@@ -11,6 +11,27 @@ const MainDashboard = ({
 }) => {
   const [date, setDate] = useState(false);
 
+
+  const getNonLINCount = ()=>{
+    const countNonLinearWallViolations = mainData?.reduce((count, item) => {
+      if (item.voilation_type === "Non_linear_wall") {
+          count++;
+      }
+      return count;
+  }, 0); 
+  return countNonLinearWallViolations
+  }
+
+  const getMissingCleats = ()=>{
+    const countNonLinearWallViolations = mainData?.reduce((count, item) => {
+      if (item.voilation_type === "Missing_cleats") {
+          count++;
+      }
+      return count;
+  }, 0); 
+  return countNonLinearWallViolations
+  }
+
   return (
     <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
       {/*  Site header */}
@@ -33,16 +54,16 @@ const MainDashboard = ({
               </div>
               <div className="h-[1px] w-full bg-gray-600 " />
               <div className="text-sm text-gray-700  italic text-center pb-1 mt-1">
-                30
+                {getMissingCleats()}
               </div>
             </div>
             <div className=" border px-3 py-1.5 rounded-md bg-white shadow-sm w-[200px]">
               <div className="text-sm text-gray-700 font-semibold italic text-center pb-1 mt-1">
-                Missing Alignment
+                 Non_linear_wall
               </div>
               <div className="h-[1px] w-full bg-gray-600 " />
               <div className="text-sm text-gray-700  italic text-center pb-1 mt-1">
-                30
+              {getNonLINCount()}
               </div>{" "}
             </div>
             {historyDate ? (
@@ -106,7 +127,7 @@ const MainDashboard = ({
             </div>
             <div className=" bg-white border   outline-none  rounded-md ">
               <div>
-                <div className="h-[500px] overflow-scroll">
+                <div className="h-[70vh] overflow-scroll">
                   <PaginatedComponent itemsPerPage={30} mainData={mainData} />,
                 </div>
               </div>
